@@ -98,6 +98,21 @@ const movies = {
 };
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.usersByMovie = {}
+    
+    console.log('movies', movies, 'profiles', profiles, users)
+    profiles.forEach(profile => {
+      const movieID = profile.favoriteMovieID
+      if (this.usersByMovie[movieID]) {
+        this.usersByMovie[movieID].push(profile.userID)
+      } else {
+        this.usersByMovie[movieID] = [profile.userID]
+      }
+    })
+    console.log(this.usersByMovie)
+  }
   render() {
     return (
       <div className="App">
