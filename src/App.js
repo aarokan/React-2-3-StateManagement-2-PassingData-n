@@ -103,7 +103,7 @@ class App extends Component {
     super(props)
     this.usersByMovie = {}
     
-    console.log('movies', movies, 'profiles', profiles, users)
+    console.log('movies:', movies, '\nprofiles:', profiles, '\nusers:', users)
     profiles.forEach(profile => {
       const movieID = profile.favoriteMovieID
       if (this.usersByMovie[movieID]) {
@@ -112,7 +112,7 @@ class App extends Component {
         this.usersByMovie[movieID] = [profile.userID]
       }
     })
-    console.log(this.usersByMovie)
+    console.log('usersByMovie:', this.usersByMovie)
   }
   render() {
     return (
